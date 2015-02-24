@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/main.css">
+    <title>Title</title>
+  </head>
+  <body ng-app="bike" ng-controller="storeCtrl as store">
+
+
+
+
+
+    <div class="name">
+    	
+    	<form>
+
+			<div ng-show="store.showPromo" class="showing">
+				<div class="promo-showing" ng-repeat="bike in store.products">
+					<div class="promo-bikes">
+						<p>{{bike.name}}</p>
+						<p>{{bike.price}}</p>
+						<div ng-repeat="accessory in bike.accessories" class="accesories">
+							<p>{{accessory.name}}</p>
+							<p>{{accessory.price}}</p>
+						</div>
+					</div>
+				</div>
+				<button ng-click="store.switchToEdit()">Edit</button>	
+			</div>
+					
+			<div ng-show="!store.showPromo" class="editing">
+	  			<div ng-repeat="bike in store.products">
+	  				<input ng-model="bike.name">
+	  				<input ng-model="bike.price">
+	  				<button ng-click="store.appendAcc()">add accessories</button>
+					<div ng-show="store.showAcc" ng-repeat="accessory in bike.accessories" class="add-parts">
+						<input class="accessory-input" ng-model="accessory.name">
+	  					<input class="accessory-input" ng-model="accessory.price">
+	  					<button ng-click="store.hideAcc()">submit accessories</button>
+					</div>		
+	  			</div> 	
+	  			<button ng-click="store.newBike()" type="submit">Create New</button>
+	  			<button ng-click="store.switchToPromo()">See Promo Screen</button>
+  			</div>	 	
+
+    	</form>
+
+    	  	
+
+    </div>
+
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+
+  <script src="js/main.js"></script>
+  </body>
+</html>

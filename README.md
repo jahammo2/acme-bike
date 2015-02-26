@@ -8,9 +8,9 @@ The assignment can be found here: https://github.com/tiy-durham-fe-2015/curricul
 
 ### Technologies Used:
 
--JavaScript
--Angular.js
--HTML
+- JavaScript
+- Angular.js
+- HTML
 
 ### Where I got:
 
